@@ -72,7 +72,7 @@ namespace IL2CPPBase
             ArrayListGUIStyle.fontSize = 20;
             
             var modules = ModuleManager.Modules.Where(module => module.Enabled && module.Name != "GUI");
-            var orderedEnumerable = modules.OrderByDescending(x => x.Name.Length).ToArray();
+            var orderedEnumerable = modules.OrderByDescending(x => Render.GetTextWidth(x.Name)).ToArray();
 
             var count = 0;
             foreach (var module in orderedEnumerable)
